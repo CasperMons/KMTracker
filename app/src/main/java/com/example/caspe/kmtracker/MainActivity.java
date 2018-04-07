@@ -25,8 +25,9 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    // Instantiate firebase database
     FirebaseDatabase database = FirebaseDatabase.getInstance();
+    // Set reference on the right location
     DatabaseReference dbRef = database.getReference("KMTracker/Rides/");
 
     final ArrayList<Ride> lstRides = new ArrayList<>();
@@ -38,9 +39,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Declare elements from the view
         listViewRides = (ListView) findViewById(R.id.listview_rides);
         swipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.swipe_refresh);
 
+        // Get all rides in the Firebase database
         getRides();
 
         listViewRides.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -48,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 final Ride clickedRide = (Ride) parent.getItemAtPosition(position);
                 if (clickedRide.username == null) {
+                    // Alert dialog to ask the user if he or she wants to claim the selected ride
                     new AlertDialog.Builder(MainActivity.this)
                             .setTitle(R.string.alert_title_claim_ride)
                             .setMessage(R.string.alert_message_claim_ride)
@@ -70,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void getRides(){
+        // Get all rides from database and re-draw the list view
         dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -82,23 +87,27 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                // Things gone boom
+                // Something went wrong
             }
         });
     }
 
     private void updateListView(){
+        // Sort the collection of rides on date Descending
         Collections.sort(lstRides, Collections.reverseOrder());
+        // Create an adapter and set it on the listview
         RidesAdapter adapter = new RidesAdapter(getBaseContext(), lstRides);
         listViewRides.setAdapter(adapter);
         swipeRefreshLayout.setRefreshing(false);
     }
 
     private void claimRide(final Ride rideToClaim) {
+        // Update the ride record with username
         dbRef.orderByChild("date").equalTo(rideToClaim.date).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String key = "";
+                // Username is temporary testUser until firebase authentication is implemented
                 rideToClaim.username = "TestUser";
 
                 for (DataSnapshot snap : dataSnapshot.getChildren()) {
@@ -107,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
                 if (!key.equals("")) {
                     Map<String, Object> childUpdates = new HashMap<>();
                     childUpdates.put(key, rideToClaim);
+                    // Perform update operation
                     dbRef.updateChildren(childUpdates, new DatabaseReference.CompletionListener() {
                         @Override
                         public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {

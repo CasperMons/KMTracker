@@ -36,16 +36,20 @@ public class RidesAdapter extends ArrayAdapter<Ride> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item_rides, parent, false);
         }
 
+        // Declare the layout elements
         TextView txtDate = (TextView) convertView.findViewById(R.id.txt_date);
         TextView txtDistance = (TextView) convertView.findViewById(R.id.txt_distance);
         TextView txtUser = (TextView) convertView.findViewById(R.id.txt_username);
         TextView txtPrice = (TextView) convertView.findViewById(R.id.txt_price);
+
+        // Fill ride record with the data of ride at position
         if (ride != null) {
             double price = ride.distance * Ride.RIDE_PRICE;
             txtDate.setText(dateFormat.format(new Date(ride.date)));
-            txtDistance.setText(Long.toString(ride.distance));
+            txtDistance.setText(Long.toString(ride.distance) + "KM");
             txtPrice.setText("€" + Ride.priceFormat.format(price));
 
+            // If the ride is already claimed, display green text. If not, display red text (N/A)
             if (ride.username == null || ride.username.equals("")){
                 txtUser.setText(Ride.UNREGISTERED);
                 txtUser.setTextColor(convertView.getResources().getColor(R.color.txt_unregistered, null));
