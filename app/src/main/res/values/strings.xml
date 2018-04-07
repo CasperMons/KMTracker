@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">KMTracker</string>
+    <string name="title_main_activity">Geschiedenis van ritten</string>
+    <string name="alert_title_claim_ride">Rit claimen</string>
+    <string name="alert_message_claim_ride">Druk op ja om deze rit te claimen.</string>
+    <string name="toast_ride_claim_success">Rit is geclaimd!</string>
+    <string name="toast_ride_claim_failure">Er is iets misgegaan, probeer het later nog eens.</string>
+</resources>

@@ -1,0 +1,107 @@
+{
+  "project_info": {
+    "project_number": "355506333197",
+    "firebase_url": "https://kilonotes.firebaseio.com",
+    "project_id": "kilonotes",
+    "storage_bucket": "kilonotes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:355506333197:android:3f2fffa0ea3ad4b7",
+        "android_client_info": {
+          "package_name": "com.example.caspe.kilonotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "355506333197-888vekk2oqhd79t0uks04g5eu6n8linm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.caspe.kilonotes",
+            "certificate_hash": "456ae8749eb170bf1122396ebf1993a7183032e3"
+          }
+        },
+        {
+          "client_id": "355506333197-gsvvlkrl26sv1ukacbek2pc4tcg4m6si.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.caspe.kilonotes",
+            "certificate_hash": "72c49b40c8039eb7a1fb5e524a5d6d43a63c8737"
+          }
+        },
+        {
+          "client_id": "355506333197-kok9pff290mmbl5hlr74lc1dpdvep36p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-tbPfsx6ItRIlGOA09isTFxQKAEnlmSA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "355506333197-kok9pff290mmbl5hlr74lc1dpdvep36p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:355506333197:android:cf525880d58c83be",
+        "android_client_info": {
+          "package_name": "com.example.caspe.kmtracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "355506333197-muh0m48qnh0an7hnd0b8u0spdu4pvd20.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.caspe.kmtracker",
+            "certificate_hash": "456ae8749eb170bf1122396ebf1993a7183032e3"
+          }
+        },
+        {
+          "client_id": "355506333197-kok9pff290mmbl5hlr74lc1dpdvep36p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-tbPfsx6ItRIlGOA09isTFxQKAEnlmSA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "355506333197-kok9pff290mmbl5hlr74lc1dpdvep36p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
